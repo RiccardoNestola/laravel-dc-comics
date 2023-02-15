@@ -31,14 +31,27 @@
             <p><strong>Prezzo</strong> {{$product->price}}</p>
             <p><strong>Serie</strong> {{$product->series}}</p>
             <p><strong>Data di uscita</strong> {{$product->sale_date}}</p>
+            <p><strong>Tipo</strong> {{$product->type}}</p>
             <p><strong>ID:</strong>{{$product->id}}</p>
-            <a class="btn btn-warning btn-sm d-inline-block"><i class="bi bi-pencil-square"></i></a>
-            <form class="d-inline-block" action="{{ route('product.destroy', $product->id)}}" method="post">
+            
+
+
+            <form class="d-inline-block" action="{{ route ("product.edit", $product->id) }}" method="GET">
+                        
+              <button class="btn btn-warning btn-sm" type="submit"><i class="bi bi-pencil-square"></i></button>
+            
+            </form>
+
+
+            <form class="d-inline-block" action="{{ route('product.destroy', $product->id)}}" method="POST">
               @csrf
-              @method('DELETE')
+              @method("DELETE")
               <button  class="btn btn-danger btn-sm" type="submit"><i class="bi bi-archive"></i></button>
+            </form>
           </div>
-  
+
+
+
         </div>
       </div>
     

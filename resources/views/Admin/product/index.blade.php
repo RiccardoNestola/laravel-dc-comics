@@ -57,14 +57,19 @@
                       <a href="{{ route("product.show", $product->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-folder2-open"></i></a>
                     </td>
                     <td>
-                        <a class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
+                      <form action="{{ route ("product.edit", $product->id) }}" method="GET">
+                        
+                        <button class="btn btn-warning btn-sm" type="submit"><i class="bi bi-pencil-square"></i></button>
+                      
+                      </form>
+                        
                     </td>
                     <td>
                         <form action="{{ route('product.destroy', $product->id)}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button  class="btn btn-danger btn-sm" type="submit"><i class="bi bi-archive"></i></button>
-                      </form>
+                          @csrf
+                          @method('DELETE')
+                          <button  class="btn btn-danger btn-sm" type="submit"><i class="bi bi-archive"></i></button>
+                        </form>
                     </td>
                     @endforeach
                   </tr>
