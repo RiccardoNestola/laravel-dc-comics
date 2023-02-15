@@ -50,7 +50,7 @@
           <input type="text" class="form-control" placeholder="Inserisci valore" name="type">
         </div>
         <div class="mt-3">
-          <button type="submit" class="btn btn-primary btn-block">Invia</button>
+          <button type="submit" class="btn btn-primary btn-block">Salva</button>
         </div>
       </form>
 

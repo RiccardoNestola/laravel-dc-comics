@@ -65,7 +65,7 @@
                         
                     </td>
                     <td>
-                        <form action="{{ route('product.destroy', $product->id)}}" method="post">
+                        <form class="form-delete" data-element-name="{{ $product->title}}" action="{{ route('product.destroy', $product->id)}}" method="post">
                           @csrf
                           @method('DELETE')
                           <button  class="btn btn-danger btn-sm" type="submit"><i class="bi bi-archive"></i></button>
@@ -81,7 +81,7 @@
 
     
       
-
+    @vite('resources/js/deleteForm.js')
 </body>
 
 </html>
