@@ -40,18 +40,36 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $formData = $request->all();
+        
 
         $request->validate([
             
-            'title' =>'required | min: 2 | max: 100',
+            'title' =>'required | min: 5 | max: 100',
             'description' =>'required',
             'thumb' =>'string|nullable|max: 255',
             'price' =>'required|numeric',
-            'series' =>'string|required',
+            'series' =>'string|required | min: 3 | max: 100',
             'sale_date' =>'date|nullable',
-            'type' =>'string|nullable',
+            'type' =>'string|required | min: 3 | max: 100',
 
-        ]);
+        ],
+        [
+            'title.required' => 'Il campo titolo è obbligatorio',
+            'title.min' => 'Il campo titolo deve avere almeno 5 caratteri',
+            'title.max' => 'Il campo titolo deve avere massimo 100 caratteri',
+            'description.required' => 'Il descrizione è obbligatoria',
+            'thumb.required' => 'Il titolo è obbligatorio',
+            'price.numeric' => 'Il campo prezzo deve essere un numero',
+            'price.required' => 'Il campo prezzo è obbligatorio',
+            'series.required' => 'Il titolo è obbligatorio',
+            'series.min' => 'Il campo tipo deve avere almeno 3 caratteri',
+            'series.max' => 'Il campo tipo deve avere massimo 100 caratteri',
+            'sale_date.required' => 'La data è obbligatoria',
+            'type.required' => 'Il tipo è obbligatorio',
+            'type' => 'Il campo tipo deve avere almeno 3 caratteri',
+        ],
+    );
+
         /* $newComic = new Product();
         $newComic->title = $formData["title"];
         $newComic->description = $formData["description"];
@@ -60,8 +78,14 @@ class ProductController extends Controller
         $newComic->series = $formData["series"];
         $newComic->sale_date = $formData["sale_date"];
         $newComic->type = $formData["type"]; */
+        
+
+        
+
         $newComic = new Product();
         $newComic->fill($formData);
+
+
         $newComic->save();
 
         return redirect() -> route("product.show", $newComic->id);
@@ -110,15 +134,31 @@ class ProductController extends Controller
 
         $request->validate([
             
-            'title' =>'required | min: 2 | max: 100',
+            'title' =>'required | min: 5 | max: 100',
             'description' =>'required',
             'thumb' =>'string|nullable|max: 255',
             'price' =>'required|numeric',
-            'series' =>'string|required',
+            'series' =>'string|required | min: 3 | max: 100',
             'sale_date' =>'date|nullable',
-            'type' =>'string|nullable',
+            'type' =>'string|required | min: 3 | max: 100',
 
-        ]);
+        ],
+        [
+            'title.required' => 'Il campo titolo è obbligatorio',
+            'title.min' => 'Il campo titolo deve avere almeno 5 caratteri',
+            'title.max' => 'Il campo titolo deve avere massimo 100 caratteri',
+            'description.required' => 'Il descrizione è obbligatoria',
+            'thumb.required' => 'Il titolo è obbligatorio',
+            'price.numeric' => 'Il campo prezzo deve essere un numero',
+            'price.required' => 'Il campo prezzo è obbligatorio',
+            'series.required' => 'Il titolo è obbligatorio',
+            'series.min' => 'Il campo tipo deve avere almeno 3 caratteri',
+            'series.max' => 'Il campo tipo deve avere massimo 100 caratteri',
+            'sale_date.required' => 'La data è obbligatoria',
+            'type.required' => 'Il tipo è obbligatorio',
+            'type' => 'Il campo tipo deve avere almeno 3 caratteri',
+        ],
+    );
 
         $product->update($formData);
         
