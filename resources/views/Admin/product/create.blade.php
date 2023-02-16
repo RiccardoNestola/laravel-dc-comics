@@ -38,31 +38,31 @@
         <div class="form-group">
 
           <label>Titolo</label>
-          <input type="text" class="form-control" placeholder="Inserisci valore" name="title" value="{{ /* old('title') ?? */ $product->title  }}">
+          <input type="text" class="form-control" placeholder="Inserisci valore" name="title" value="{{ old('title') }}">
         </div>
         <div class="form-group">
           <label>Descrizione</label>
-          <textarea type="text" class="form-control" placeholder="Inserisci valore" name="description">{{/* old('description') ?? */ $product->description }}</textarea>
+          <textarea type="text" class="form-control" placeholder="Inserisci valore" name="description">{{ old('description') }}</textarea>
         </div>
         <div class="form-group">
           <label>Foto</label>
-          <input type="text" class="form-control" placeholder="Inserisci valore" name="thumb" value="{{ old('thumb') ?? $product->thumb }}">
+          <input type="text" class="form-control" placeholder="Inserisci valore" name="thumb" value="{{ old('thumb') }}">
         </div>
         <div class="form-group">
           <label>Prezzo</label>
-          <input type="text" class="form-control" placeholder="Inserisci valore" name="price" value="{{  old('price') ?? $product->price }}">
+          <input type="text" class="form-control" placeholder="Inserisci valore" name="price" value="{{  old('price') }}">
         </div>
         <div class="form-group">
           <label>Serie</label>
-          <input type="text" class="form-control" placeholder="Inserisci valore" name="series" value="{{ old('series') ?? $product->series }}">
+          <input type="text" class="form-control" placeholder="Inserisci valore" name="series" value="{{ old('series') }}">
         </div>
         <div class="form-group">
           <label>Uscita</label>
-          <input type="date" class="form-control" placeholder="Inserisci valore" name="sale_date" value="{{ old('sale_date') ?? $product->sale_date }}>
+          <input type="date" class="form-control" placeholder="Inserisci valore" name="sale_date" value="{{ old('sale_date') }}>
         </div>
         <div class="form-group">
           <label>Tipo</label>
-          <input type="text" class="form-control" placeholder="Inserisci valore" name="type" value="{{ old('type') ?? $product->type }}">
+          <input type="text" class="form-control" placeholder="Inserisci valore" name="type" value="{{ old('type') }}">
         </div>
         <div class="mt-3">
           <button type="submit" class="btn btn-primary btn-block">Salva</button>
