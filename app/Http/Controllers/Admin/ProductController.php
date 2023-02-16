@@ -40,6 +40,18 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $formData = $request->all();
+
+        $request->validate([
+            
+            'title' =>'required | min: 2 | max: 100',
+            'description' =>'required',
+            'thumb' =>'string|nullable|max: 255',
+            'price' =>'required|numeric',
+            'series' =>'string|required',
+            'sale_date' =>'date|nullable',
+            'type' =>'string|nullable',
+
+        ]);
         /* $newComic = new Product();
         $newComic->title = $formData["title"];
         $newComic->description = $formData["description"];
@@ -79,6 +91,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
+
+        
         return view("admin.product.edit", compact("product"));
     }
 
@@ -93,6 +107,18 @@ class ProductController extends Controller
     {
         $formData = $request->all();
         $product = Product::findOrFail($id);
+
+        $request->validate([
+            
+            'title' =>'required | min: 2 | max: 100',
+            'description' =>'required',
+            'thumb' =>'string|nullable|max: 255',
+            'price' =>'required|numeric',
+            'series' =>'string|required',
+            'sale_date' =>'date|nullable',
+            'type' =>'string|nullable',
+
+        ]);
 
         $product->update($formData);
         

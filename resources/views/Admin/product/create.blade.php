@@ -22,6 +22,19 @@
     <div class="container">
       <form action="{{ route ("product.store") }}" method="POST"> @csrf
         <div class="form-group">
+
+          @if ($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                @foreach ($errors->all() as $error)
+                  <li>
+                      {{$error}}
+                  </li>  
+                @endforeach
+              </ul>
+            </div>
+          @endif
+
           <label>Titolo</label>
           <input type="text" class="form-control" placeholder="Inserisci valore" name="title">
         </div>
